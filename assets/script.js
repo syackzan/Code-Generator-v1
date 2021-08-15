@@ -1,7 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-
+//Variables//
 var specialCharacters = ["!", "@", "&", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "|", "{", "}", "[", "]"];
 var numericalCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var uppercaseCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
@@ -31,7 +31,7 @@ function comparison (specialCharacters, finalPassword){
   }
 }
 
-
+//Password Generator//
 function generatePassword(userInput) {
   
   guaranteedCharacters = [];
@@ -79,6 +79,7 @@ function generatePassword(userInput) {
   }
   console.log(intermediateArray);
 
+  //Function to splice in Guaranteed Characters//
   for (var i = 0; i < guaranteedCharacters.length; i++){
     var n = Math.floor(Math.random() * intermediateArray.length);
     intermediateArray.splice(n, 1, guaranteedCharacters[i]);
@@ -87,6 +88,7 @@ function generatePassword(userInput) {
   console.log(intermediateArray);
   var finalPassword = intermediateArray;
 
+  //function to turn finalPassword into a string if there are Special Characters in the password//
   if (comparison(specialCharacters, finalPassword) === true){
     var passcontainer = finalPassword.join("");
     console.log(passcontainer);
@@ -98,6 +100,7 @@ function generatePassword(userInput) {
   return passcontainer; 
 }
 
+//function to change html with Password Generator//
 function writePassword(userInput) {
   var password = generatePassword(userInput);
   var passwordText = document.querySelector("#password");
@@ -106,6 +109,7 @@ function writePassword(userInput) {
 
 }
 
+//Collecting and Passing in how many characters the User wants their password to be//
 function startCollection(){
   
   alert("It's Time To Generate A Password");
@@ -122,9 +126,6 @@ function startCollection(){
     writePassword(userInput);
   }  
 }
-
-// Write password to the #password input
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", startCollection);
