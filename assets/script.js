@@ -91,13 +91,12 @@ function generatePassword(userInput) {
   //function to turn finalPassword into a string if there are Special Characters in the password//
   if (comparison(specialCharacters, finalPassword) === true){
     var passcontainer = finalPassword.join("");
-    console.log(passcontainer);
+    console.log(passcontainer);    
   } else {
     alert("You need symbols within your password");
-    startCollection();
+    return;      
   }
-  
-  return passcontainer; 
+  return passcontainer;
 }
 
 //function to change html with Password Generator//
@@ -106,7 +105,7 @@ function writePassword(userInput) {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
+  
 }
 
 //Collecting and Passing in how many characters the User wants their password to be//
